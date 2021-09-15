@@ -1,0 +1,11 @@
+/.tmp/**
+/docs/**
+/mock/**
+/examples/**
+prd/
+/node_modules/**
+/dist
+/test/cases/**/config/**
+/test/cases/**/babel.config.js
+/test/cases/**/index.js
+/test/cases/**/test.js

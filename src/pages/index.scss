@@ -1,0 +1,13 @@
+.route {
+
+
+  &-con {
+  }
+}
+
+.con {
+  margin: 20px auto;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}

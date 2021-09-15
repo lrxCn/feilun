@@ -15,7 +15,8 @@ leader的意见是想做一个react最佳实践。目标用户是没有接触过
 ## 内容
 
 - safeImage: 当图片资源不可访问时，可以自动切换到给定的资源列表上
-- useSafeState: 当ajax回调中使用了setState，但是此时组件已经卸载了，就会报warning：Can't perform a React state update on an unmounted component. 使用useSafeState就不会有这样的问题。
+- 【安全的setState】useSafeState: 当ajax回调中使用了setState，但是此时组件已经卸载了，就会报warning：Can't perform a React state update on an unmounted component. 使用useSafeState就不会有这样的问题。
+- 【数据流】无公共父组件怎么交流数据，flooks
 
 ## 推荐阅读
 

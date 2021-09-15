@@ -7,42 +7,34 @@ import './index.scss';
 export default () => {
   const routeJSON = useRef(arr2json(ROUTES, 'route'));
 
-  const setTitle = () => {
+  const getTitle = () => {
     const { route, title = route.slice(1) } = routeJSON.current?.[location.hash.slice(1)];
     document.title = title;
   };
 
   useEffect(() => {
-    setTitle();
-    window.onhashchange = setTitle;
-
-    return () => {
-      window.removeEventListener('hashchange');
-    };
+    getTitle();
+    window.onhashchange = getTitle;
   }, []);
 
   return (
-    <div className="con">
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              {ROUTES.map(({ title, route }) => (
-                <li key={route}>
-                  <Link to={route}>{title || route.slice(1)}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+    <Router>
+      <div className="con">
+        <ul>
+          {ROUTES.map(({ title, route }) => (
+            <li key={route}>
+              <Link to={route}>{title || route.slice(1)}</Link>
+            </li>
+          ))}
+        </ul>
 
-          <Switch>
-            {ROUTES.map(({ route, Component }) => (
-              <Route key={route} path={route} component={Component} />
-            ))}
-            <Redirect path="/" to={ROUTES[0].route} />
-          </Switch>
-        </div>
-      </Router>
-    </div>
+        <Switch>
+          {ROUTES.map(({ route, Component }) => (
+            <Route key={route} path={route} component={Component} />
+          ))}
+          <Redirect path="/" to={ROUTES[0].route} />
+        </Switch>
+      </div>
+    </Router>
   );
 };

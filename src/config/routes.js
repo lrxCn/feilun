@@ -5,6 +5,11 @@ import DownloadImageBatch from '@/pages/DownloadImageBatch';
 
 export default [
   {
+    route: '/download',
+    title: '批量下载图片',
+    Component: DownloadImageBatch,
+  },
+  {
     route: '/safeImage',
     Component: SafeImage,
   },
@@ -17,10 +22,5 @@ export default [
     route: '/flooks',
     title: '数据流',
     Component: Flooks,
-  },
-  {
-    route: '/download',
-    title: '批量下载图片',
-    Component: DownloadImageBatch,
   },
 ];

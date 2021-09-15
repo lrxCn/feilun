@@ -10,7 +10,7 @@ const RIGHT_SRC = {
 export default () => {
 
   const downloadTotal1 = () => {
-    downloadWrapper([RIGHT_SRC.HAND])
+    downloadWrapper(RIGHT_SRC.HAND)
   };
 
   const downloadTotal2 = () => {

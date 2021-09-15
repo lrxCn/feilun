@@ -1,8 +1,11 @@
 import FileSaver from 'file-saver';
 import JSZip from 'jszip';
 
+// 从url中获取图片的名字
+export const getFileNameByUrl = url => url.substring(url.lastIndexOf('/') + 1);
+
 export const downloadImg = (src = '') => {
-  const name = src.split('/').pop();
+  const name = getFileNameByUrl(src);
   const type = name.split('.').pop() || 'png';
   const canvas = document.createElement('canvas');
   const img = document.createElement('img');
@@ -23,9 +26,6 @@ export const downloadImg = (src = '') => {
   img.src = src;
 };
 
-// 从url中获取图片的名字
-export const getFileNameByUrl = url => url.substring(url.lastIndexOf('/') + 1);
-
 /**
  * 获取文件
  * @param url
@@ -36,11 +36,7 @@ const getBlob = url =>
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'blob';
-    xhr.onload = () => {
-      if (xhr.status === 200) {
-        resolve(xhr.response);
-      }
-    };
+    xhr.onload = () => xhr.status === 200 && resolve(xhr.response);
     xhr.send();
   });
 
@@ -55,16 +51,14 @@ export const downloadTotal = (urlArr, filename = '打包下载') => {
   }
   const zip = new JSZip();
   const cache = {};
-  const promises = [];
-  urlArr.forEach(item => {
+  const promises = urlArr.map(item => {
     // 下载文件, 并存成ArrayBuffer对象
-    const promise = getBlob(item).then(data => {
+    return getBlob(item).then(data => {
       // 逐个添加文件
       const _filename = getFileNameByUrl(item);
       zip.file(_filename, data, { binary: true });
       cache[_filename] = data;
     });
-    promises.push(promise);
   });
 
   Promise.all(promises).then(() => {
@@ -76,23 +70,14 @@ export const downloadTotal = (urlArr, filename = '打包下载') => {
   });
 };
 
-export const limitNum = (num, max, min) => {
-  if (num > max) {
-    return max;
-  }
-  if (num < min) {
-    return min;
-  }
-  return num;
-};
-
-// 是否点击到了antd/drawer抽屉的左上角关闭按钮, e是Drawer的onClose的事件对象
-export const calcCloseCondition = e => !e?.target?.className?.includes?.('ant-drawer-mask');
-
-export const downloadWrapper = (imagesurl = []) => {
-  if (imagesurl.length > 1) {
-    downloadTotal(imagesurl);
-  } else {
-    downloadImg(imagesurl.slice(0).pop());
+export const downloadWrapper = imagesurl => {
+  if(Array.isArray(imagesurl)){
+    if(imagesurl.length > 1){
+      downloadTotal(imagesurl);
+    }else{
+      downloadImg(imagesurl.slice(0).pop());
+    }
+  }else{
+    downloadImg(imagesurl);
   }
 };

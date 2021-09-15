@@ -6,3 +6,5 @@ export const mockAjax = async (value, time) => {
   await sleep(time);
   return value;
 }
+
+export const arr2json = (arr = [], key) => arr.reduce((total, cur) =>Object.assign(total, { [cur[key]]: cur }) , {});

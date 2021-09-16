@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RollNumberItem from './item';
 import { transNumber } from './utils';
-import './index.scss';
+import { rollNumber } from './index.module.scss';
 
 export default ({
   number = 0,
@@ -19,7 +19,7 @@ export default ({
   const { fontSize, lineHeight, height} = itemStyle || {};
 
   return (
-    <div className="roll-number" style={{ height: height || lineHeight || fontSize || '1rem' }}>
+    <div className={rollNumber} style={{ height: height || lineHeight || fontSize || '1rem' }}>
       {numberArr.map(item => (/^\d$/.test(item.value) ? (
           <RollNumberItem
             updateRecycle={updateRecycle}

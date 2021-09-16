@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Child from './component/Child';
 import ChildSafeState from './component/ChildSafeState';
-import '@/assets/style/common.scss';
 
 export default () => {
   const [visChild1, setVisChild1] = useState(true);

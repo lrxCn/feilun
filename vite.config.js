@@ -6,6 +6,11 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 export default defineConfig({
   plugins: [reactRefresh()],
   base: './',
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly'
+    }
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

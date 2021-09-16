@@ -1,6 +1,6 @@
 import React from 'react';
 import SafeImage from "@/common/components/SafeImage";
-import '@/assets/style/common.scss';
+import {square100, outline} from '@/assets/style/common.module.scss';
 
 const RIGHT_SRC = {
   HAND: 'https://img.icons8.com/glyph-neue/2x/easy.png',
@@ -11,19 +11,19 @@ export default () => {
   return (
     <div>
       <h6>可以当做正常的img使用</h6>
-      <SafeImage src={RIGHT_SRC.HAND} className="outline square-100" alt="hand" />
+      <SafeImage src={RIGHT_SRC.HAND} className={square100, outline} alt="hand" />
       <hr />
 
       <h6>也可以不传src 只穿srclist</h6>
-      <SafeImage srclist={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className="square-100" />
+      <SafeImage srclist={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className={square100} />
       <hr />
 
       <h6>当srclist第一个地址报错的时候，会尝试使用第二个</h6>
-      <SafeImage srclist={[`mass${RIGHT_SRC.HAND}`, RIGHT_SRC.SMILE]} className="square-100" />
+      <SafeImage srclist={[`mass${RIGHT_SRC.HAND}`, RIGHT_SRC.SMILE]} className={square100} />
       <hr />
 
       <h6>src 和 srclist 可以一起使用，src优先级高于srcList</h6>
-      <SafeImage src={`mass${RIGHT_SRC.SMILE}`} srclist={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className="square-100" />
+      <SafeImage src={`mass${RIGHT_SRC.SMILE}`} srclist={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className={square100} />
       <hr />
     </div>
   )

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { downloadWrapper } from '../../common/utils/download';
-import './index.scss';
+import { downloadBtn, download } from './index.module.scss';
 
 const RIGHT_SRC = {
   HAND: '/2.jpeg',
@@ -18,9 +18,9 @@ export default () => {
   };
 
   return (
-    <div className='con-download'>
-      <div className='con-download-btn' onClick={downloadTotal1}>down1</div>
-      <div className='con-download-btn' onClick={downloadTotal2}>down2</div>
+    <div className={download}>
+      <div className={downloadBtn} onClick={downloadTotal1}>down1</div>
+      <div className={downloadBtn} onClick={downloadTotal2}>down2</div>
     </div>
   )
 }

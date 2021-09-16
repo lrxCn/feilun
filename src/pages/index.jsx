@@ -3,7 +3,7 @@ import ROUTES from '@/config/routes';
 import { HashRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { arr2json } from '@/common/utils/index.js';
 import useEventListener from '@/common/hooks/useEventListener.js';
-import './index.scss';
+import { con } from './index.module.scss';
 
 export default () => {
   
@@ -20,7 +20,7 @@ export default () => {
 
   return (
     <Router>
-      <div className="con">
+      <div className={con}>
         <ul>
           {ROUTES.map(({ title, route }) => (
             <li key={route}>

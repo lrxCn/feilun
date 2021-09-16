@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FlipNumber from '@/common/components/FlipNumber';
-import '@/assets/style/common.scss';
+import { noselect} from '@/assets/style/common.module.scss';
 
 export default () => {
   const [num, setNum] = useState(10);
@@ -9,7 +9,7 @@ export default () => {
     <div>
       <FlipNumber number={num} radix={3} omitDecimals={false} itemStyle={{ color: 'red', fontSize: '50px'}} />
 
-      <div className="add noselect" onClick={() => setNum(num+1)}>add1</div>
+      <div className={noselect} onClick={() => setNum(num+1)}>add1</div>
 
 
       <FlipNumber 
@@ -22,7 +22,7 @@ export default () => {
         // 每个字符都会使用这个样式 
         itemStyle={{ color: 'red', fontSize: '50px'}}
       />
-      <div className="add noselect" onClick={() => setNum2(num2+1)}>add2</div>
+      <div className={noselect} onClick={() => setNum2(num2+1)}>add2</div>
       
     </div>
   )

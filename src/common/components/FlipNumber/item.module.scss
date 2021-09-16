@@ -5,11 +5,11 @@
 
 .roll-number-cell {
 
-  &--transition {
+  &-transition {
     transition: transform 1s ease-out;
   }
 
-  &--hidden {
+  &-hidden {
     transform: translateZ(-999px);
   }
 }

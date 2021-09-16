@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './item.scss';
+import { rollNumberContent, rollNumberCellTransition, rollNumberCellHidden }  from './item.module.scss';
 import cx from 'classnames';
-import useSafeState from '@/common/hooks/useSafeState.js';
 
 export default ({ value = 0, itemStyle, updateRecycle } = {}) => {
   const firstRender = useRef(true);
@@ -15,7 +14,6 @@ export default ({ value = 0, itemStyle, updateRecycle } = {}) => {
     prevValue: 0,
   });
 
-  
   useEffect(() => {
     setState(prev => ({
       ...prev,
@@ -36,13 +34,12 @@ export default ({ value = 0, itemStyle, updateRecycle } = {}) => {
   };
 
   return (
-    <div className="roll-number-content" onTransitionEnd={handleTransitionEnd}>
+    <div className={rollNumberContent} onTransitionEnd={handleTransitionEnd}>
       {[...Array(10).keys(), ...Array(10).keys()].map((i, key) => (
         <span
           key={`${i }_${ key}`}
           className={cx(
-            'roll-number-cell',
-            transition ? 'roll-number-cell--transition' : 'roll-number-cell--hidden'
+            transition ? rollNumberCellTransition : rollNumberCellHidden
           )}
           style={{ ...itemStyle, transform: `translateY(${transformValue}%)` }}
         >

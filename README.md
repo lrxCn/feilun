@@ -1,6 +1,6 @@
 # feilun
 
-飞轮是一个 **react demo** 合集，也是个个人错题本。
+[飞轮](https://lrxcn.github.io/feilun/dist)是一个 **react demo** 合集，也是个个人错题本。
 
 ## 前世今生
 

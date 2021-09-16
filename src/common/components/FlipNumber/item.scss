@@ -1,0 +1,15 @@
+.roll-number-content {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.roll-number-cell {
+
+  &--transition {
+    transition: transform 1s ease-out;
+  }
+
+  &--hidden {
+    transform: translateZ(-999px);
+  }
+}

@@ -1,0 +1,51 @@
+// 2.partical && module
+@use "./partical";
+
+// 1.变量
+$primary-color: #333;
+
+// 3.mixin
+@mixin circle($diameter: 50) {
+  height: #{$diameter}px;
+  width: #{$diameter}px;
+  border: {
+    width: 10px;
+    style: solid;
+    color: partical.$primary-color;
+    radius: 50%;
+  }
+  // border-radius: (25 + 25) * 1%;
+}
+
+// 5.extend
+%center {
+  display: grid;
+  background-color: partical.$primary-color;
+  place-items: center;
+}
+
+// 应用
+
+.wrap {
+  outline: 1px solid partical.$primary-color;
+}
+
+.con {
+  // 2.1
+  outline: 1px solid partical.$red-color;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  // 4.nesting
+
+  .demo1 {
+    // 3.1
+    @include circle($diameter:100);
+    background: {
+      color: partical.$red-color;
+      clip: content-box;
+    }
+    opacity: .2;
+    color: #fff;
+  }
+}

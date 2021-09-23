@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "sass:watch": "npx sass --watch ./src/pages/SassDemo"
   },
   "dependencies": {
     "classnames": "^2.3.1",

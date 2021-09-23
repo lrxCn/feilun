@@ -3,6 +3,7 @@ import SafeSetState from '@/pages/SafeSetState';
 import Flooks from '@/pages/Flooks';
 import DownloadImageBatch from '@/pages/DownloadImageBatch';
 import FlipNumbers from '@/pages/FlipNumbers';
+import SassDemo from '@/pages/SassDemo';
 
 export default [
   {
@@ -28,5 +29,10 @@ export default [
     route: '/flipNumber',
     title: '数字滚动',
     Component: FlipNumbers,
+  },
+  {
+    route: '/sassDemo',
+    title: 'sass深度使用',
+    Component: SassDemo,
   },
 ];

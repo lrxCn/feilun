@@ -15,15 +15,15 @@ export default () => {
       <hr />
 
       <h6>也可以不传src 只穿srclist</h6>
-      <SafeImage srclist={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className={square100} />
+      <SafeImage src={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className={square100} />
       <hr />
 
       <h6>当srclist第一个地址报错的时候，会尝试使用第二个</h6>
-      <SafeImage srclist={[`mass${RIGHT_SRC.HAND}`, RIGHT_SRC.SMILE]} className={square100} />
+      <SafeImage src={[`mass${RIGHT_SRC.HAND}`, RIGHT_SRC.SMILE]} className={square100} />
       <hr />
 
       <h6>src 和 srclist 可以一起使用，src优先级高于srcList</h6>
-      <SafeImage src={`mass${RIGHT_SRC.SMILE}`} srclist={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className={square100} />
+      <SafeImage src={[RIGHT_SRC.HAND, RIGHT_SRC.SMILE]} className={square100} />
       <hr />
     </div>
   )

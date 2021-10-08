@@ -4,6 +4,7 @@ import Flooks from '@/pages/Flooks';
 import DownloadImageBatch from '@/pages/DownloadImageBatch';
 import FlipNumbers from '@/pages/FlipNumbers';
 import SassDemo from '@/pages/SassDemo';
+import CreatePortalDemo from '@/pages/CreatePortalDemo';
 
 export default [
   {
@@ -34,5 +35,10 @@ export default [
     route: '/sassDemo',
     title: 'sass深度使用',
     Component: SassDemo,
+  },
+  {
+    route: '/createPortalDemo',
+    title: '父组件被移除，子组件仍然保留',
+    Component: CreatePortalDemo,
   },
 ];
